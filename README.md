@@ -2,7 +2,7 @@
 ```
 mvn clean install
 ```
-Run from SumupApplication
+Run from SumupApplication\n
 Send post request for a json response to:
 ```
 http://localhost:8080/jsonOutput
