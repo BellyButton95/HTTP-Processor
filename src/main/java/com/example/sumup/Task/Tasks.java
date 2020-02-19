@@ -1,4 +1,6 @@
 package com.example.sumup.Task;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.Maps;
 
 import java.util.*;
@@ -9,9 +11,8 @@ public class Tasks {
     private Map<String, Task> tasksMap;
     private boolean isError;
 
-    public Tasks(){ }
-
-    public Tasks(List<Task> tasks){
+    @JsonCreator
+    public Tasks(@JsonProperty(value="tasks", required=true) List<Task> tasks){
         this.tasks = tasks;
         this.isError = false;
         this.tasksMap = getTasksMap();

@@ -1,5 +1,6 @@
 package com.example.sumup.Task;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Arrays;
@@ -10,9 +11,10 @@ public class Task {
     private String command;
     private String[] requires;
 
-    public Task() { }
-
-    public Task(String name, String command, String[] requires){
+    @JsonCreator
+    public Task(@JsonProperty(value="name", required = true) String name,
+                @JsonProperty(value="command", required = true) String command,
+                @JsonProperty(value="requires") String[] requires){
         this.name = name;
         this.command = command;
         this.requires = requires;
